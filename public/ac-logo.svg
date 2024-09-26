@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="52.850651mm"
+   height="50.697487mm"
+   viewBox="0 0 52.850651 50.697487"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-210.64646,-154.06218)">
+    <g
+       id="g43"
+       transform="translate(149.44455,114.3589)">
+      <rect
+         style="display:none;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:6.23209;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect3"
+         width="65.693863"
+         height="60.647018"
+         x="-28.813154"
+         y="123.13737"
+         ry="30.323509"
+         rx="32.846931" />
+      <g
+         id="g45"
+         transform="matrix(0.72478706,0,0,0.72478706,84.388281,-45.268144)">
+        <ellipse
+           style="fill:#000000;fill-opacity:1;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill"
+           id="path43"
+           cx="4.4688339"
+           cy="152.21045"
+           rx="36.459435"
+           ry="34.974052" />
+        <g
+           id="g44">
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'Leelawadee UI';-inkscape-font-specification:'Leelawadee UI';display:inline;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:5.929;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+             x="-22.772024"
+             y="166.14693"
+             id="text3"><tspan
+               id="tspan3"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke:none;stroke-width:5.929"
+               x="-22.772024"
+               y="166.14693">Advanced Community</tspan></text>
+          <g
+             id="g41"
+             transform="translate(-85.195876)"
+             style="stroke-width:4.7;stroke-dasharray:none">
+            <path
+               style="fill:none;stroke:#ffffff;stroke-width:4.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+               d="m 96.172705,154.01687 18.824585,-0.0469"
+               id="path9" />
+            <path
+               style="display:inline;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:4.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+               d="m 104.95555,142.10068 -24.438225,0.0465"
+               id="path39" />
+            <path
+               style="fill:none;stroke:#ffffff;stroke-width:4.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+               d="m 80.475823,142.15559 15.654131,11.89495"
+               id="path40" />
+            <path
+               style="fill:#f9f9f9;stroke:#ffffff;stroke-width:4.7;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+               d="M 64.33213,154.03971 80.475823,142.15559"
+               id="path41" />
+          </g>
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:'Leelawadee UI';-inkscape-font-specification:'Leelawadee UI';fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:5.929;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+             x="24.852974"
+             y="138.63055"
+             id="text43"><tspan
+               id="tspan43"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke:none;stroke-width:5.929"
+               x="24.852974"
+               y="138.63055">TM</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
