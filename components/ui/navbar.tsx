@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 import {
@@ -73,7 +74,7 @@ export const Navbar = () => {
         <NavbarItem className="hidden sm:flex">
           <Button
             as={Link}
-            className="text-sm font-normal text-default-600 bg-gradient-to-r from-[#FF1CF7] to-[#b249f8]"
+            className="text-sm font-normal text-white dark:text-default-600 bg-gradient-to-r from-[#FF1CF7] to-[#b249f8]"
             endContent={
               <ArrowSignUp className="flex items-center justify-center text-center mt-1" />
             }
@@ -99,14 +100,8 @@ export const Navbar = () => {
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
-                }
-                href="#"
+                color={index === 2 ? "primary" : "foreground"}
+                href={item.href}
                 size="lg"
               >
                 {item.label}
