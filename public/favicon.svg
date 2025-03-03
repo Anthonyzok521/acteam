@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="72.296196mm"
+   height="54.854744mm"
+   viewBox="0 0 72.296196 54.854744"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath368"><path
+         d="M 0,1831.586 H 1113.836 V 0 H 0 Z"
+         transform="translate(-304.49911,-1392.7074)"
+         id="path368" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath366"><path
+         d="M 0,1831.586 H 1113.836 V 0 H 0 Z"
+         transform="translate(-289.10551,-1262.2028)"
+         id="path366" /></clipPath></defs><g
+     transform="matrix(0.03527778,0,0,-0.03527778,-34.821183,95.756862)"
+     fill="#000000"
+     stroke="none"
+     id="g3"><path
+       d="M 2146.5543,1740.5541 2491.481,1159.436 h 341.3672 C 2525.2164,1677.7465 2217.5845,2196.057 1909.9527,2714.3675 1602.3209,2196.057 1294.6891,1677.7465 987.05734,1159.436 h 341.35246 l 581.5429,979.79 c 44.2188,-74.5068 88.4376,-149.0137 132.6562,-223.5205"
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;stroke-width:7.5;enable-background:accumulate;stop-color:#000000"
+       id="path408" /><path
+       id="path365"
+       d="M 0,0 15.392,28.25 H 1.329 L -14.063,0 Z"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(9.9999991,0,0,9.9999991,1959.5624,1409.314)"
+       clip-path="url(#clipPath366)" /><path
+       id="path367"
+       d="M 0,0 -0.011,-0.018 -0.021,0 h -13 l 82.979,-139.805 h 0.021 l 9.311,-15.688 h 13 z"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(9.9999991,0,0,9.9999991,2113.4984,2714.3599)"
+       clip-path="url(#clipPath368)" /><path
+       d="M 2044.4838,1915.7056 H 1847.7407 L 1398.854,1159.436 h 1025.9472 c -40.0194,67.4365 -80.0391,134.873 -120.0585,202.3096 h -574.1455 l 206.3964,378.8086 h 211.4356"
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;stroke-width:7.5;enable-background:accumulate;stop-color:#000000"
+       id="path1" /></g></svg>

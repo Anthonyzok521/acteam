@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    transition: fill .5s ease;
+    transition: stroke .5s ease;
+    transition: color .5s ease;
+    transition: background-color .5s ease;
+}
