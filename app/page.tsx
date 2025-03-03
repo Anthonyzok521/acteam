@@ -1,4 +1,5 @@
 import { Suspense, lazy } from "react";
+
 import { Link } from "@heroui/link";
 import { Spinner } from "@heroui/spinner";
 import { button as buttonStyles } from "@heroui/theme";
@@ -9,10 +10,10 @@ import { siteConfig } from "@/config/site";
 
 const Acteam3D = lazy(() => import("@/components/res/acteam3d"));
 
-export default function Home() {
+export default async function Home() {
   return (
-    <>
-      <div style={{ height: "50dvh" }}>
+    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <div style={{ height: "50dvh", width: "99vw" }}>
         <Suspense
           fallback={
             <Spinner
@@ -25,39 +26,36 @@ export default function Home() {
           <Acteam3D />
         </Suspense>
       </div>
-
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-xl text-center justify-center">
-          <span className={title()}>Creando&nbsp;</span>
-          <span className={title({ color: "violet" })}>proyectos&nbsp;</span>
-          <br />
-          <span className={title()}>para el mundo.</span>
-          <div className={subtitle({ class: "mt-4" })}>
-            Con diferentes tecnologías para la diversidad.
-          </div>
+      <div className="inline-block max-w-xl text-center justify-center">
+        <span className={title()}>Creando&nbsp;</span>
+        <span className={title({ color: "violet" })}>proyectos&nbsp;</span>
+        <br />
+        <span className={title()}>para el mundo.</span>
+        <div className={subtitle({ class: "mt-4" })}>
+          Con diferentes tecnologías para la diversidad.
         </div>
+      </div>
 
-        <div className="flex gap-3">
-          <Link
-            className={buttonStyles({
-              color: "primary",
-              radius: "full",
-              variant: "shadow",
-            })}
-            href={siteConfig.links.news}
-          >
-            Novedades
-          </Link>
-          <Link
-            isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig.links.github}
-          >
-            <GithubIcon size={20} />
-            GitHub
-          </Link>
-        </div>
-      </section>
-    </>
+      <div className="flex gap-3">
+        <Link
+          className={buttonStyles({
+            color: "primary",
+            radius: "full",
+            variant: "shadow",
+          })}
+          href={siteConfig.links.news}
+        >
+          Novedades
+        </Link>
+        <Link
+          isExternal
+          className={buttonStyles({ variant: "bordered", radius: "full" })}
+          href={siteConfig.links.github}
+        >
+          <GithubIcon size={20} />
+          GitHub
+        </Link>
+      </div>
+    </section>
   );
 }
