@@ -79,6 +79,14 @@ export const siteConfig = {
       label: "Acerca de",
       href: "/about",
     },
+    {
+      label: "Iniciar Sesión",
+      href: "/signin",
+    },
+    {
+      label: "Registrarse",
+      href: "/signup",
+    },
   ],
   links: {
     github: "https://github.com/Advanced-Community",
