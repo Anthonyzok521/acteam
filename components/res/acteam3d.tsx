@@ -1,6 +1,6 @@
 import Spline from "@splinetool/react-spline";
 
-const Acteam3D = () => (
+const Acteam3D = async () => (
   <Spline scene="https://prod.spline.design/uj3Rm42I9uyjugfM/scene.splinecode" />
 );
 
