@@ -1,24 +1,24 @@
 "use client";
 
-import {
-  Navbar as HeroUINavbar,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuToggle,
-  NavbarBrand,
-  NavbarItem,
-  NavbarMenuItem,
-} from "@heroui/navbar";
+import { useState } from "react";
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
+import {
+  Navbar as HeroUINavbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+} from "@heroui/navbar";
 import { link as linkStyles } from "@heroui/theme";
-import NextLink from "next/link";
 import clsx from "clsx";
+import NextLink from "next/link";
 
-import { siteConfig } from "@/config/site";
+import { ArrowSignUp, Logo } from "@/components/res/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { Logo, ArrowSignUp } from "@/components/res/icons";
-import { useState } from "react";
+import { siteConfig } from "@/config/site";
 
 export const Navbar = () => {
   const [hover, setHover] = useState<boolean>(false);

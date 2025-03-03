@@ -1,16 +1,29 @@
+import { Suspense, lazy } from "react";
 import { Link } from "@heroui/link";
+import { Spinner } from "@heroui/spinner";
 import { button as buttonStyles } from "@heroui/theme";
-import Spline from "@splinetool/react-spline";
 
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
+import { subtitle, title } from "@/components/primitives";
 import { GithubIcon } from "@/components/res/icons";
+import { siteConfig } from "@/config/site";
+
+const Acteam3D = lazy(() => import("@/components/res/acteam3d"));
 
 export default function Home() {
   return (
     <>
       <div style={{ height: "50dvh" }}>
-        <Spline scene="https://prod.spline.design/uj3Rm42I9uyjugfM/scene.splinecode" />
+        <Suspense
+          fallback={
+            <Spinner
+              classNames={{ label: "text-foreground mt-4" }}
+              label="wave"
+              variant="wave"
+            />
+          }
+        >
+          <Acteam3D />
+        </Suspense>
       </div>
 
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
