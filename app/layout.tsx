@@ -1,16 +1,16 @@
-import "@/styles/globals.css";
-import { Metadata, Viewport } from "next";
+import { Suspense, lazy } from "react";
 import clsx from "clsx";
-import { lazy, Suspense } from "react";
+import { Metadata, Viewport } from "next";
 
+import Loading from "@/components/res/loading";
+import { fontSans } from "@/config/fonts";
+import { siteConfig } from "@/config/site";
+import "@/styles/globals.css";
+
+// eslint-disable-next-line import/order
 import { Providers } from "./providers";
 
-import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
-import { Navbar } from "@/components/ui/navbar";
-import { Footer } from "@/components/ui/footer";
-
-const Loading = lazy(() => import("@/components/res/loading"));
+const Content = lazy(() => import("@/components/ui/content"));
 
 export const metadata: Metadata = {
   title: {
@@ -46,13 +46,7 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <Suspense fallback={<Loading />}>
-            <div className="relative flex flex-col h-screen">
-              <Navbar />
-              <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-                {children}
-              </main>
-              <Footer />
-            </div>
+            <Content>{children}</Content>
           </Suspense>
         </Providers>
       </body>
