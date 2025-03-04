@@ -1,16 +1,13 @@
-import { Suspense, lazy } from "react";
 import clsx from "clsx";
 import { Metadata, Viewport } from "next";
 
-import Loading from "@/components/res/loading";
+import Content from "@/components/ui/content";
 import { fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import "@/styles/globals.css";
 
 // eslint-disable-next-line import/order
 import { Providers } from "./providers";
-
-const Content = lazy(() => import("@/components/ui/content"));
 
 export const metadata: Metadata = {
   title: {
@@ -42,7 +39,7 @@ export const viewport: Viewport = {
   ],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -57,9 +54,7 @@ export default async function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <Suspense fallback={<Loading />}>
-            <Content>{children}</Content>
-          </Suspense>
+          <Content>{children}</Content>
         </Providers>
       </body>
     </html>

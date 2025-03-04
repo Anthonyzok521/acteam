@@ -1,11 +1,13 @@
-import { SectionBanner } from "@/components/sections/home/section-banner";
+"use client";
+
+import SectionBanner from "@/components/sections/home/section-banner";
 import { SectionTypesProjects } from "@/components/sections/home/section-types-projects";
 
-export default async function Home() {
-  return (
-    <>
+const HomePage = () => (
+  <>
       <SectionBanner />
       <SectionTypesProjects />
-    </>
-  );
-}
+  </>
+);
+
+export default HomePage;
