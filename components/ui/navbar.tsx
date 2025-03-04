@@ -96,17 +96,37 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-2">
+        <div className="mx-4 mt-2 flex flex-col gap-2 justify-center items-center">
           {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={index === 2 ? "primary" : "foreground"}
-                href={item.href}
-                size="lg"
-              >
-                {item.label}
-              </Link>
-            </NavbarMenuItem>
+            <>
+              {!item.href.includes("/signin") &&
+              !item.href.includes("/signup") ? (
+                <NavbarMenuItem key={`${item}-${index}`}>
+                  <Link
+                    color={index === 2 ? "primary" : "foreground"}
+                    href={item.href}
+                    size="lg"
+                  >
+                    {item.label}
+                  </Link>
+                </NavbarMenuItem>
+              ) : (
+                <>
+                  {item.href.includes("/signin") && (
+                    <div className="w-full h-1 bg-black dark:bg-white rounded-sm" />
+                  )}
+                  <NavbarMenuItem key={`${item}-${index}`} className="w-full">
+                    <Link
+                      className={`w-full flex justify-center items-center p-2 rounded-md ${item.href.includes("/signin") ? "bg-default text-black dark:text-white hover:text-white hover:bg-slate-600 dark:hover:bg-gray-600" : "bg-black text-white dark:bg-white dark:text-black"}`}
+                      href={item.href}
+                      size="lg"
+                    >
+                      {item.label}
+                    </Link>
+                  </NavbarMenuItem>
+                </>
+              )}
+            </>
           ))}
         </div>
       </NavbarMenu>

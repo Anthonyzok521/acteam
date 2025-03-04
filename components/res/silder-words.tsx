@@ -1,73 +1,117 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
+
+import { motion } from "framer-motion";
 
 import { ISliderWord } from "@/types";
 
-type props = { x: number; text: string; icon: (props: any) => JSX.Element };
-
-const ContentText = ({ x, text, icon: Icon }: props) => (
-  <div
-    style={{ left: `${x}px` }}
-    className={`flex-col absolute h-full select-none w-52 flex justify-center items-center group light:hover:text-white dark:hover:text-black hover:font-semibold`}
-  >
-    <Icon
-      size={30}
-      className={`dark:fill-white fill-black group-hover:fill-white dark:group-hover:fill-black`}
-    />
-    <span>{text}</span>
-  </div>
-);
+interface MovingElement {
+  id: number;
+  offset: number;
+  text: string;
+  icon: (props: any) => JSX.Element;
+}
 
 export const SliderWord: FC<ISliderWord> = ({ words }: ISliderWord) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [count, setCount] = useState<number>(0);
-  const [posX, setPosX] = useState<Array<props>>([
-    { x: 0, text: "", icon: () => <></> },
-  ]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [elements, setElements] = useState<MovingElement[]>([]);
+  const animationRef = useRef<number>();
+  const offsetRef = useRef(0);
+  const speed = 0.0005;
 
   useEffect(() => {
-    if (words.length > 1) {
-      words.forEach((word) => {
-        setCount((prevCount) => {
-          const newCount = prevCount + 250;
+    if (!containerRef.current) return;
 
-          setPosX((prevPosX) => [
-            ...prevPosX,
-            { x: newCount, text: word.title, icon: word.icon },
-          ]);
+    const width = containerRef.current.clientWidth;
 
-          return newCount;
-        });
-      });
-      setPosX((prevPosX) => [
-        ...prevPosX,
-        { x: 250, text: "", icon: () => <></> },
-      ]);
+    setContainerWidth(width);
+
+    const initialElements: MovingElement[] = words.map((word, i) => ({
+      id: i,
+      offset: i / words.length,
+      text: word.title,
+      icon: word.icon,
+    }));
+
+    setElements(initialElements);
+  }, [words]);
+
+  const animate = useCallback(() => {
+    offsetRef.current += speed;
+    if (offsetRef.current >= 1) {
+      offsetRef.current = 0;
     }
 
-    const interval = setInterval(() => {
-      setPosX((prevPosX) =>
-        prevPosX.map((word) => {
-          const newX = word.x + 1;
+    setElements((prevElements) =>
+      prevElements.map((element) => ({
+        ...element,
+        offset: (element.offset + speed) % 1,
+      })),
+    );
 
-          if (newX > window.innerWidth) {
-            return { ...word, x: -50 };
-          }
+    animationRef.current = requestAnimationFrame(animate);
+  }, [speed]);
 
-          return { ...word, x: newX };
-        }),
-      );
-    }, 10);
+  useEffect(() => {
+    if (elements.length === 0 || !containerWidth) return;
 
-    return () => clearInterval(interval);
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [elements, containerWidth, animate]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (!containerRef.current) return;
+      setContainerWidth(containerRef.current.clientWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const elementWidth = 100;
+  const gap = containerWidth > 768 ? 50 : 550;
+
   return (
-    <div className="w-[99vw] h-36 bg-stripe-gradient-primary relative overflow-hidden">
-      {posX.map((word, index) => (
-        <ContentText key={index} x={word.x} text={word.text} icon={word.icon} />
-      ))}
+    <div className="w-screen h-36 bg-stripe-gradient-primary p-4">
+      <div
+        ref={containerRef}
+        className="relative w-full h-full overflow-hidden bg-transparent"
+      >
+        {elements.map((element) => {
+          const position =
+            element.offset * (containerWidth + elementWidth + gap) -
+            elementWidth;
+
+          return (
+            <motion.div
+              key={element.id}
+              className="absolute h-full rounded-md flex flex-col items-center justify-center text-white font-bold group"
+              style={{
+                left: `${position}px`,
+                top: "calc(30% - 30px)", // Centrado vertical
+                width: elementWidth,
+              }}
+              initial={false}
+            >
+              {element.icon({
+                size: 30,
+                className:
+                  "dark:fill-white fill-black group-hover:fill-white dark:group-hover:fill-black",
+              })}
+              <span className="group-hover:text-white dark:group-hover:text-black light:text-white">{element.text}</span>
+            </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 };

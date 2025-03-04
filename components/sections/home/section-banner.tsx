@@ -1,29 +1,22 @@
-import { Suspense, lazy } from "react";
+"use client";
 
 import { Link } from "@heroui/link";
-import { Spinner } from "@heroui/spinner";
 import { button as buttonStyles } from "@heroui/theme";
 
 import { subtitle, title } from "@/components/primitives";
 import { GithubIcon } from "@/components/res/icons";
 import { siteConfig } from "@/config/site";
+import dynamic from "next/dynamic";
+import Loading from "@/components/res/loading";
 
-const Acteam3D = lazy(() => import("@/components/res/acteam3d"));
+const Acteam3D = dynamic(() => import("@/components/res/acteam3d"), {
+  loading: () => <Loading />
+})
 
-export const SectionBanner = async () => (
+const SectionBanner = () => (
   <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-    <div style={{ height: "50dvh", width: "99vw" }}>
-      <Suspense
-        fallback={
-          <Spinner
-            classNames={{ label: "text-foreground mt-4" }}
-            label="wave"
-            variant="wave"
-          />
-        }
-      >
-        <Acteam3D />
-      </Suspense>
+    <div className="flex justify-center items-center" style={{ height: "50dvh", width: "99vw" }}>
+      <Acteam3D />
     </div>
     <div className="inline-block max-w-xl text-center justify-center">
       <span className={title()}>Creando&nbsp;</span>
@@ -57,3 +50,5 @@ export const SectionBanner = async () => (
     </div>
   </section>
 );
+
+export default SectionBanner;
