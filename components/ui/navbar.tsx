@@ -13,8 +13,6 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@heroui/navbar";
-import { link as linkStyles } from "@heroui/theme";
-import clsx from "clsx";
 import NextLink from "next/link";
 
 import { ArrowSignUp, Logo } from "@/components/res/icons";
@@ -25,7 +23,11 @@ export const Navbar = () => {
   const [hover, setHover] = useState<boolean>(false);
 
   return (
-    <HeroUINavbar maxWidth="xl" position="sticky">
+    <HeroUINavbar
+      maxWidth="xl"
+      position="sticky"
+      className="light:bg-white light:bg-opacity-50"
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -36,13 +38,11 @@ export const Navbar = () => {
           </NextLink>
         </NavbarBrand>
         <ul className="hidden w-full sm:flex gap-4 justify-end ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
+          {siteConfig.navItems.map((item, index) => (
+            <NavbarItem key={`n${item.href}`}>
               <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
-                )}
+                key={`nl${index}`}
+                className={"dark:hover:text-blue-500 hover:text-pink-600"}
                 color="foreground"
                 href={item.href}
               >
@@ -60,21 +60,20 @@ export const Navbar = () => {
         <NavbarItem className="hidden sm:flex">
           <Button
             as={Link}
-            className=""
+            className="bg-gray-800 text-white dark:bg-slate-600"
             href={siteConfig.links.signIn}
             radius="full"
-            color={`${hover ? "primary" : "default"}`}
             variant={`${hover ? "shadow" : "flat"}`}
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
           >
-            Sign In
+            Iniciar Sesión
           </Button>
         </NavbarItem>
         <NavbarItem className="hidden sm:flex">
           <Button
             as={Link}
-            className="text-sm font-normal text-white dark:text-default-600 bg-gradient-to-r from-[#FF1CF7] to-[#b249f8]"
+            className="text-sm font-normal text-white dark:text-default-600 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8] dark:from-[#0072F5] dark:to-[#0072F5]"
             endContent={
               <ArrowSignUp className="flex items-center justify-center text-center mt-1" />
             }
@@ -82,7 +81,7 @@ export const Navbar = () => {
             radius="full"
             variant="shadow"
           >
-            Sign Up
+            Registrarse
           </Button>
         </NavbarItem>
         <NavbarItem className="hidden sm:flex gap-2">
@@ -101,8 +100,9 @@ export const Navbar = () => {
             <>
               {!item.href.includes("/signin") &&
               !item.href.includes("/signup") ? (
-                <NavbarMenuItem key={`${item}-${index}`}>
+                <NavbarMenuItem key={`1${item}-${index}`}>
                   <Link
+                    key={`l${index}`}
                     color={index === 2 ? "primary" : "foreground"}
                     href={item.href}
                     size="lg"
@@ -113,10 +113,14 @@ export const Navbar = () => {
               ) : (
                 <>
                   {item.href.includes("/signin") && (
-                    <div className="w-full h-1 bg-black dark:bg-white rounded-sm" />
+                    <div
+                      key={`d${index}`}
+                      className="w-full h-1 bg-black dark:bg-white rounded-sm"
+                    />
                   )}
-                  <NavbarMenuItem key={`${item}-${index}`} className="w-full">
+                  <NavbarMenuItem key={`2${item}-${index}`} className="w-full">
                     <Link
+                      key={`l2${index}`}
                       className={`w-full flex justify-center items-center p-2 rounded-md ${item.href.includes("/signin") ? "bg-default text-black dark:text-white hover:text-white hover:bg-slate-600 dark:hover:bg-gray-600" : "bg-black text-white dark:bg-white dark:text-black"}`}
                       href={item.href}
                       size="lg"

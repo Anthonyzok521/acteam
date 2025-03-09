@@ -1,11 +1,10 @@
 "use client";
 
 import { Link } from "@heroui/link";
-import { link as linkStyles } from "@heroui/theme";
-
 import { Navbar, NavbarItem } from "@heroui/navbar";
-import NextLink from "next/link";
+import { link as linkStyles } from "@heroui/theme";
 import clsx from "clsx";
+import NextLink from "next/link";
 
 import { GithubIcon, Logo, XIcon } from "@/components/res/icons";
 import { siteConfig } from "@/config/site";
@@ -15,9 +14,10 @@ export const Footer = () => (
     <Logo />
     <Navbar>
       <ul className="hidden w-full sm:flex gap-4 justify-center ml-2">
-        {siteConfig.navItems.map((item) => (
-          <NavbarItem key={item.href}>
+        {siteConfig.navItems.map((item, index) => (
+          <NavbarItem key={`f${item.href}`}>
             <NextLink
+              key={`fk${index}`}
               className={clsx(
                 linkStyles({ color: "foreground" }),
                 "data-[active=true]:text-primary data-[active=true]:font-medium",

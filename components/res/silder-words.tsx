@@ -81,7 +81,7 @@ export const SliderWord: FC<ISliderWord> = ({ words }: ISliderWord) => {
   const gap = containerWidth > 768 ? 50 : 550;
 
   return (
-    <div className="w-screen h-36 bg-stripe-gradient-primary p-4">
+    <div className="w-screen h-36 dark:bg-stripe-gradient-primary bg-stripe-gradient-secondary p-4">
       <div
         ref={containerRef}
         className="relative w-full h-full overflow-hidden bg-transparent"
@@ -105,9 +105,11 @@ export const SliderWord: FC<ISliderWord> = ({ words }: ISliderWord) => {
               {element.icon({
                 size: 30,
                 className:
-                  "dark:fill-white fill-black group-hover:fill-white dark:group-hover:fill-black",
+                  "dark:fill-white fill-white group-hover:fill-black dark:group-hover:fill-black",
               })}
-              <span className="group-hover:text-white dark:group-hover:text-black light:text-white">{element.text}</span>
+              <span className="group-hover:text-black dark:group-hover:text-black light:text-white">
+                {element.text}
+              </span>
             </motion.div>
           );
         })}
