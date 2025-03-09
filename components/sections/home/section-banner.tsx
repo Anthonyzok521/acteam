@@ -6,23 +6,18 @@ import { button as buttonStyles } from "@heroui/theme";
 import { subtitle, title } from "@/components/primitives";
 import { GithubIcon } from "@/components/res/icons";
 import { siteConfig } from "@/config/site";
-import dynamic from "next/dynamic";
-import Loading from "@/components/res/loading";
-
-const Acteam3D = dynamic(() => import("@/components/res/acteam3d"), {
-  loading: () => <Loading />
-})
 
 const SectionBanner = () => (
-  <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-    <div className="flex justify-center items-center" style={{ height: "50dvh", width: "99vw" }}>
-      <Acteam3D />
-    </div>
-    <div className="inline-block max-w-xl text-center justify-center">
-      <span className={title()}>Creando&nbsp;</span>
-      <span className={title({ color: "violet" })}>proyectos&nbsp;</span>
+  <section className="h-[82dvh] flex flex-col items-center justify-center gap-4">
+    <div className="z-10 inline-block max-w-xl text-center justify-center">
+      <span className={`${title()} text-white`}>Creando&nbsp;</span>
+      <span
+        className={`tracking-tight inline font-semibold text-[2.3rem] lg:text-5xl leading-9 bg-clip-text text-transparent bg-gradient-to-b from-[#FF1CF7] to-[#b249f8] dark:from-[#5EA2EF] dark:to-[#0072F5]`}
+      >
+        proyectos&nbsp;
+      </span>
       <br />
-      <span className={title()}>para el mundo.</span>
+      <span className={`${title()} text-white`}>para el mundo.</span>
       <div className={subtitle({ class: "mt-4" })}>
         Con diferentes tecnologías para la diversidad.
       </div>
@@ -31,9 +26,9 @@ const SectionBanner = () => (
     <div className="flex gap-3">
       <Link
         className={buttonStyles({
-          color: "primary",
           radius: "full",
           variant: "shadow",
+          className: "dark:bg-[#0072F5] bg-[#FF1CF7] text-white",
         })}
         href={siteConfig.links.news}
       >
@@ -41,7 +36,11 @@ const SectionBanner = () => (
       </Link>
       <Link
         isExternal
-        className={buttonStyles({ variant: "bordered", radius: "full" })}
+        className={buttonStyles({
+          variant: "bordered",
+          radius: "full",
+          className: "text-white",
+        })}
         href={siteConfig.links.github}
       >
         <GithubIcon size={20} />
