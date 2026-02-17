@@ -8,7 +8,7 @@ import { GithubIcon } from "@/components/res/icons";
 import { siteConfig } from "@/config/site";
 
 const SectionBanner = () => (
-  <section className="h-[82dvh] flex flex-col items-center justify-center gap-4">
+  <section className="md:h-[82dvh] flex flex-col items-center justify-center gap-4">
     <div className="z-10 inline-block max-w-xl text-center justify-center">
       <span className={`${title()} text-white`}>Creando&nbsp;</span>
       <span

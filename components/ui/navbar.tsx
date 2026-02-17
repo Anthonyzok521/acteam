@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
@@ -97,7 +97,7 @@ export const Navbar = () => {
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2 justify-center items-center">
           {siteConfig.navMenuItems.map((item, index) => (
-            <>
+            <Fragment key={`fk-${index}`}>
               {!item.href.includes("/signin") &&
               !item.href.includes("/signup") ? (
                 <NavbarMenuItem key={`1${item}-${index}`}>
@@ -111,7 +111,7 @@ export const Navbar = () => {
                   </Link>
                 </NavbarMenuItem>
               ) : (
-                <>
+                <Fragment key={`fk2-${index}`}>
                   {item.href.includes("/signin") && (
                     <div
                       key={`d${index}`}
@@ -128,9 +128,9 @@ export const Navbar = () => {
                       {item.label}
                     </Link>
                   </NavbarMenuItem>
-                </>
+                </Fragment>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
       </NavbarMenu>
