@@ -339,6 +339,7 @@ const StatsSection = () => (
         </div>
       </div>
     </div>
+    <div className="mt-24 absolute left-0 right-0 glow-line" />
   </section>
 );
 
@@ -350,8 +351,7 @@ const aboutFeatures = [
 ];
 
 const AboutSection = () => (
-  <section id="nosotros" className="py-24">
-    <div className="absolute left-0 right-0 glow-line" />
+  <section id="nosotros" className="py-24 relative">
     <div className="container mx-auto px-6">
       <div className="grid md:grid-cols-2 gap-16 items-center">
         <motion.div
