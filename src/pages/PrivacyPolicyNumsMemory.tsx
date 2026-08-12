@@ -160,12 +160,6 @@ const PrivacyPolicyNumsMemory = () => {
             </section>
           </div>
         </article>
-
-        <div className="mt-8 rounded-xl border border-blue-100 bg-blue-50 p-4 text-sm text-slate-600">
-          <strong className="font-semibold text-slate-800">Antes de publicar:</strong> subí este archivo a
-          una URL pública y accesible (GitHub Pages, Google Sites, tu propio dominio, etc.), y pegá esa URL
-          en Play Console → Contenido de la app → Política de privacidad.
-        </div>
       </div>
     </main>
   );
